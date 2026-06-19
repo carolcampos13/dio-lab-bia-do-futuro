@@ -46,11 +46,11 @@ Acessível e amigável
 
 ```mermaid
 flowchart TD
-    A[Cliente] -->|Mensagem| B[Interface]
-    B --> C[LLM]
-    C --> D[Base de Conhecimento]
+    A[Cliente] -->| Mensagem | B[Streamlit]
+    B --> C[Gemini]
+    C --> D[Arquivo CSV/JSON]
     D --> C
-    C --> E[Validação]
+    C --> E[Checagem do arquivo]
     E --> F[Resposta]
 ```
 
@@ -61,7 +61,11 @@ flowchart TD
 | Interface | Chatbot em Streamlit |
 | LLM | Gemini 2.5 |
 | Base de Conhecimento | Arquivo CSV/JSON |
-| Validação | Checagem de alucinações | Checagem de não vazamentos de informações sensíveis | Checagem de assuntos que não foram previamente treinados | Checagem de indicação de investimentos |
+| Validação | 4 testes |
+| Teste 1 | Checagem de alucinações | 
+| Teste 2 |Checagem de não vazamentos de informações sensíveis | 
+| Teste 3 |Checagem de assuntos que não foram previamente treinados | 
+| Teste 4 |Checagem de indicação de investimentos |
 
 ---
 
@@ -77,6 +81,6 @@ flowchart TD
 ### Limitações Declaradas
 > O que o agente NÃO faz?
 
-O agente não expõe qualquer tipo de informação sensível (ex.: dados de clientes)
-O agente não faz qualquer tipo de pesquisa fora do seu treinamento (ex.: clima, empresas etc.)
+O agente não expõe qualquer tipo de informação sensível (ex.: dados de clientes) | 
+O agente não faz qualquer tipo de pesquisa fora do seu treinamento (ex.: clima, empresas etc.) | 
 O agente não inventa qualquer informação
