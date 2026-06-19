@@ -2,17 +2,12 @@
 
 ## Dados Utilizados
 
-Descreva se usou os arquivos da pasta `data`, por exemplo:
+Disponível na pasta data:
 
 | Arquivo | Formato | Utilização no Agente |
 |---------|---------|---------------------|
-| `historico_atendimento.csv` | CSV | Contextualizar interações anteriores |
-| `perfil_investidor.json` | JSON | Personalizar recomendações |
-| `produtos_financeiros.json` | JSON | Sugerir produtos adequados ao perfil |
-| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente |
-
-> [!TIP]
-> **Quer um dataset mais robusto?** Você pode utilizar datasets públicos do [Hugging Face](https://huggingface.co/datasets) relacionados a finanças, desde que sejam adequados ao contexto do desafio.
+| `base_conhecimento.json` | JSON | Base de conhecimento |
+| `dados_cliente.json` | JSON | Dados do cliente |
 
 ---
 
@@ -20,7 +15,7 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 > Você modificou ou expandiu os dados mockados? Descreva aqui.
 
-[Sua descrição aqui]
+Os dados originais do repositório base foram substituídos por um modelo de autoria própria. Foi desenvolvida uma estrutura personalizada em JSON para segmentar as regras financeiras estáveis (base de conhecimento) e as variáveis dinâmicas do perfil de teste do usuário.
 
 ---
 
@@ -29,27 +24,41 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 ### Como os dados são carregados?
 > Descreva como seu agente acessa a base de conhecimento.
 
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+Os arquivos JSON são lidos e desserializados pelo backend em Python no início da execução da aplicação. Em seguida, essas estruturas de dados são injetadas diretamente nas diretrizes de contexto enviadas à API do modelo de linguagem.
 
 ### Como os dados são usados no prompt?
 > Os dados vão no system prompt? São consultados dinamicamente?
 
-[Sua descrição aqui]
+O arquivo base_conhecimento.json irá no system prompt para informar a IA o que pode ser dito ou não e serão consultados dinamicamente quando necessário.
 
 ---
 
 ## Exemplo de Contexto Montado
 
-> Mostre um exemplo de como os dados são formatados para o agente.
 
-```
-Dados do Cliente:
-- Nome: João Silva
-- Perfil: Moderado
-- Saldo disponível: R$ 5.000
+=== CONTEXTO DO SISTEMA (BASE DE CONHECIMENTO) ===
+- Regras de Reserva:
+  * CLT: 3 a 6 meses de custo de vida.
+  * Autônomo: 6 a 12 meses de custo de vida.
+- Marcos de Evolução:
+  * Marco 1: Juntar 1 mês de custo de vida.
+  * Marco 2: Alcançar 3 meses.
+  * Marco 3: Alcançar 6 meses.
+  * Marco Final: Alcançar 12 meses.
+- Investimentos Recomendados (Baixo Risco):
+  * Tesouro Selic (Título Público, Liquidez Diária D+1).
+  * CDB 100% do CDI (Título Bancário, Liquidez Diária Imediata, Proteção FGC).
 
-Últimas transações:
-- 01/11: Supermercado - R$ 450
-- 03/11: Streaming - R$ 55
-...
-```
+=== DADOS DO CLIENTE ATUAL ===
+- Nome: João
+- Tipo de Profissão: Autônomo
+- Renda Mensal: R$ 3.000,00
+- Custo de Vida Mensal: R$ 2.000,00
+
+=== STATUS ATUAL DA RESERVA ===
+- Meta Final (12 meses): R$ 24.000,00
+- Total Guardado: R$ 150,00
+- Último Depósito: R$ 50,00
+- Progresso Atual: Focado no Marco 1 (Faltam R$ 1.850,00 para atingir 1 mês de custo de vida).
+
+---
