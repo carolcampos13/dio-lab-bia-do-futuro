@@ -1,0 +1,14 @@
+{
+  "perfil_cliente": {
+    "nome": "João",
+    "profissao_tipo": "Autônomo",
+    "salario_renda": 3000.00,
+    "custo_vida_mensal": 2000.00
+  },
+  "historico_reserva": {
+    "meta_final_12_meses": 24000.00,
+    "total_guardado_atual": 150.00,
+    "ultimo_deposito": 50.00,
+    "marco_atual": "Marco 1 (Juntar 1 mês - R$ 2.000,00)"
+  }
+}

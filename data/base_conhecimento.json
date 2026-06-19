@@ -1,0 +1,36 @@
+{
+  "regras_reserva": {
+    "clt": {
+      "tempo_recomendado_meses": "3 a 6 meses",
+      "justificativa": "Trabalhadores CLT possuem uma rede de segurança governamental (como FGTS e seguro-desemprego), permitindo uma reserva menor."
+    },
+    "autonomo": {
+      "tempo_recomendado_meses": "6 a 12 meses",
+      "justificativa": "Profissionais autônomos enfrentam maior oscilação de renda mensal e não possuem benefícios trabalhistas, exigindo maior proteção."
+    }
+  },
+  "marcos_evolucao": [
+    {"marco": "Marco 1", "descricao": "Juntar o equivalente a 1 mês de custo de vida. Celebre essa primeira vitória!"},
+    {"marco": "Marco 2", "descricao": "Alcançar 3 meses de custo de vida (Meta ideal inicial para CLT)."},
+    {"marco": "Marco 3", "descricao": "Alcançar 6 meses de custo de vida (Meta ideal inicial para Autônomos)."},
+    {"marco": "Marco Final", "descricao": "Atingir 12 meses de custo de vida para tranquilidade absoluta de longo prazo."}
+  ],
+  "investimentos_permitidos": [
+    {
+      "nome": "Tesouro Selic",
+      "tipo": "Título Público Federal",
+      "risco": "Muito Baixo (O mais seguro do país)",
+      "liquidez": "Diária (D+1)",
+      "rendimento_anual_aproximado": "Taxa Selic integral (referência estável de renda fixa)",
+      "explicacao_didatica": "Você está emprestando dinheiro para o Governo Federal. É o investimento mais seguro do Brasil, ideal para retirar o dinheiro a qualquer momento em uma emergência."
+    },
+    {
+      "nome": "CDB 100% do CDI",
+      "tipo": "Título Bancário",
+      "risco": "Baixo (Garantido pelo FGC até 250 mil reais)",
+      "liquidez": "Diária (Imediata)",
+      "rendimento_anual_aproximado": "100% da taxa CDI (anda colada com a Selic)",
+      "explicacao_didatica": "Você empresta dinheiro para um banco. Desde que tenha 'liquidez diária' e renda pelo menos 100% do CDI, seu dinheiro rende bem mais que a poupança com excelente segurança."
+    }
+  ]
+}
