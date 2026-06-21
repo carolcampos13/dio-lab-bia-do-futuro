@@ -48,7 +48,7 @@ Acessível e amigável
 flowchart TD
     A[Cliente] -->| Mensagem | B[Streamlit]
     B --> C[Gemini]
-    C --> D[Arquivo CSV/JSON]
+    C --> D[Arquivo JSON]
     D --> C
     C --> E[Checagem do arquivo]
     E --> F[Resposta]
@@ -60,7 +60,7 @@ flowchart TD
 |------------|-----------|
 | Interface | Chatbot em Streamlit |
 | LLM | Gemini 2.5 |
-| Base de Conhecimento | Arquivo CSV/JSON |
+| Base de Conhecimento | Arquivo JSON |
 | Validação | 4 testes |
 | Teste 1 | Checagem de alucinações | 
 | Teste 2 |Checagem de não vazamentos de informações sensíveis | 
