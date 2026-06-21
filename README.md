@@ -1,149 +1,86 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 🤖 Fin — Seu Mentor de Reserva de Emergência
 
-## Contexto
-
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
-
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
-
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+O **Fin** é um assistente financeiro inteligente desenvolvido sob medida para ajudar as pessoas a construírem e manterem uma reserva de emergência estável. Utilizando modelos de linguagem avançados através da API do Gemini e uma interface web interativa em Streamlit, o Fin humaniza o planejamento financeiro, transformando dados complexos em uma jornada visual, amigável e acolhedora.
 
 ---
 
-## O Que Você Deve Entregar
+## 🎬 Demonstração em Vídeo
 
-### 1. Documentação do Agente
+Assista ao nosso Pitch e veja o Fin funcionando na prática, calculando metas em tempo real e interagindo de forma inteligente:
 
-Defina **o que** seu agente faz e **como** ele funciona:
+[![Assista ao Pitch do Fin](https://img.shields.io/badge/Clique_Aqui_para_Assistir-Pitch_Fin-E31837?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/16yEZ4ZTdhI6xThe2vPncIz580CK_hnY1/view?usp=sharing)
 
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
+🔗 [Link direto de acesso no Google Drive](https://drive.google.com/file/d/16yEZ4ZTdhI6xThe2vPncIz580CK_hnY1/view?usp=sharing)
 
 ---
 
-### 2. Base de Conhecimento
+## 📁 Estrutura do Repositório
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+O projeto está organizado de forma modular, separando as camadas de código, dados e documentação técnica:
 
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
-
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
-
----
-
-### 3. Prompts do Agente
-
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
-
----
-
-## Estrutura do Repositório
-
-```
-📁 lab-agente-financeiro/
+```text
+📁 meu-projeto-fin/
 │
-├── 📄 README.md
+├── 📄 .gitignore                 # Arquivos ignorados no controle de versão
+├── 📄 README.md                  # Este guia principal do repositório
+├── 📄 requirements.txt           # Dependências e bibliotecas do projeto
 │
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
+├── 📂 assets/                    # Evidências visuais e capturas de tela dos testes
+│   └── 📝 README.md
 │
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
+├── 📂 data/                      # Base de dados persistentes (JSON)
+│   ├── 📄 base_conhecimento.json # Regras de negócios e conceitos de finanças
+│   └── 📄 dados_cliente.json     # Carteira, saldos e progresso do cliente atual
 │
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
+├── 📂 docs/                      # Documentação detalhada de cada etapa
+│   ├── 📄 01-documentacao-agente.md
+│   ├── 📄 02-base-conhecimento.md
+│   ├── 📄 03-prompts.md
+│   ├── 📄 04-metricas.md
+│   └── 📄 05-pitch.md
 │
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+└── 📂 src/                       # Código-fonte da aplicação
+    ├── 📝 README.md              # Instruções específicas de execução do código
+    └── 🐍 main.py                # Interface Streamlit e integração com a API do Gemini
 ```
 
 ---
 
-## Dicas Finais
+## 🛠️ Tecnologias Utilizadas
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+* **Python** (Linguagem base)
+* **Streamlit** (Interface de usuário interativa)
+* **Google GenAI SDK** (Integração com o modelo generativo Gemini)
+* **JSON** (Persistência estruturada de dados e base de conhecimento)
+
+---
+
+## 🚀 Como Executar o Projeto
+
+### 1. Instale as Dependências
+Abra o terminal na raiz do projeto e execute o comando:
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Inicie a Aplicação com sua API Key
+Insira sua chave gerada no Google AI Studio e execute o comando de acordo com o seu sistema operacional:
+
+* **Windows (PowerShell):**
+  ```powershell
+  $env:GEMINI_API_KEY="SUA_API_KEY_AQUI"; streamlit run src/main.py
+  ```
+
+* **Linux / macOS (Bash):**
+  ```bash
+  GEMINI_API_KEY="SUA_API_KEY_AQUI" streamlit run src/main.py
+  ```
+
+---
+
+## ⚖️ Critérios de Qualidade e Segurança
+
+O Fin foi homologado sob métricas rígidas de qualidade para garantir uma experiência segura:
+* **Assertividade:** Respostas precisas com base nos dados reais do cliente.
+* **Segurança (Guardrails):** Filtros rígidos que impedem alucinações, vazamento de escopo técnico ou indicação de ativos voláteis.
+* **Coerência:** Tom de voz informal, amigável e totalmente adaptado ao perfil financeiro de trabalhadores autônomos.
