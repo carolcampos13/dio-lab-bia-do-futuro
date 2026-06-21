@@ -1,44 +1,27 @@
-# Pitch (3 minutos)
+# # Pitch
 
-> [!TIP]
-> Você pode usar alguns slides pra apoiar no seu Pitch e mostrar sua solução na prática.
- 
-## Roteiro Sugerido
-
-### 1. O Problema (30 seg)
-> Qual dor do cliente você resolve?
-
-[Sua descrição aqui]
-
-### 2. A Solução (1 min)
-> Como seu agente resolve esse problema?
-
-[Sua descrição aqui]
-
-### 3. Demonstração (1 min)
-> Mostre o agente funcionando (pode ser gravação de tela)
-
-[Descreva o que será mostrado]
-
-### 4. Diferencial e Impacto (30 seg)
-> Por que essa solução é inovadora e qual é o impacto dela na sociedade?
-
-[Sua descrição aqui]
+O vídeo de apresentação do projeto demonstra a aplicação prática do assistente **Fin** e a validação do seu caso de uso focado em autônomos.
 
 ---
 
-## Checklist do Pitch
+## ## Link do Vídeo de Demonstração
 
-- [ ] Duração máxima de 3 minutos
-- [ ] Problema claramente definido
-- [ ] Solução demonstrada na prática
-- [ ] Diferencial explicado
-- [ ] Áudio e vídeo com boa qualidade
+> 🎬 Clique no botão abaixo para assistir à defesa da solução e ao funcionamento do assistente em tempo real:
+
+[![Assista ao Pitch do Fin](https://img.shields.io/badge/Clique_Aqui_para_Assistir-Pitch_Fin-E31837?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/16yEZ4ZTdhI6xThe2vPncIz580CK_hnY1/view?usp=sharing)
+
+*Caso o botão não carregue corretamente no seu leitor de Markdown, utilize o link alternativo abaixo:*
+
+🔗 [Acesse o vídeo diretamente no Google Drive](https://drive.google.com/file/d/16yEZ4ZTdhI6xThe2vPncIz580CK_hnY1/view?usp=sharing)
 
 ---
 
-## Link do Vídeo
+## ## Critérios de Validação Atendidos
 
-> Cole aqui o link do seu pitch (YouTube, Loom, Google Drive, etc.)
+O conteúdo apresentado no Pitch cobre os seguintes requisitos estabelecidos para o desafio:
 
-[Link do vídeo]
+- [X] Apresentação clara do problema de planejamento de reserva no Brasil.
+- [X] Demonstração da interface em Streamlit e da lógica de metas personalizadas.
+- [X] Exibição de interações dinâmicas via chat com a API do Gemini.
+- [X] Apresentação do diferencial e impacto social da solução.
+- [X] Gravação e áudio de alta qualidade dentro do tempo limite.
