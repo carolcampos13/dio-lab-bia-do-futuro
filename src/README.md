@@ -4,20 +4,36 @@ Esta pasta contém a implementação em código do assistente financeiro **Fin**
 
 ## ## Estrutura do Projeto
 
-A arquitetura do diretório foi simplificada e estruturada visualmente para facilitar a identificação de cada módulo e camada de dados:
+A arquitetura completa do diretório está estruturada visualmente da seguinte forma, separando claramente as camadas de código, documentação e dados persistentes:
 
 ```text
 📁 meu-projeto-fin/
 │
-├── 📂 assets/                     # Evidências visuais e capturas dos testes de qualidade
+├── 📂 assets/                # Evidências visuais e capturas dos testes de qualidade
+│   ├── 📝 README.md
+│   └── 📸 ... (imagens de teste e da interface)
 │
-├── 📂 data/                       # Base de dados persistentes do sistema
-│   ├── 📄 base_conhecimento.json  # Regras de negócios e dados de investimentos
-│   └── 📄 dados_cliente.json      # Carteira, saldos e metas do cliente atual (João)
+├── 📂 data/                  # Base de dados persistentes do sistema (JSON)
+│   ├── 📄 base_conhecimento.json
+│   └── 📄 dados_cliente.json
 │
-└── 📂 src/                        # Código-fonte principal da aplicação
-    ├── 📝 README.md               # Guia de documentação e execução do código
-    └── 🐍 main.py                 # Interface Streamlit e integração com a Gemini API
+├── 📂 docs/                  # Documentação detalhada das etapas do desafio
+│   ├── 📄 01-documentacao-agente.md
+│   ├── 📄 02-base-conhecimento.md
+│   ├── 📄 03-prompts.md
+│   ├── 📄 04-metricas.md
+│   └── 📄 05-pitch.md
+│
+├── 📂 examples/              # Exemplos e referências do template
+│   └── 📝 README.md
+│
+├── 📂 src/                   # Código-fonte principal da aplicação
+│   ├── 📝 README.md          # Guia de documentação e execução do código (Este arquivo)
+│   └── 🐍 main.py            # Interface Streamlit e integração com a Gemini API
+│
+├── 📄 .gitignore             # Arquivos ignorados no controle de versão
+├── 📄 README.md              # Documentação principal na raiz do repositório
+└── 📄 requirements.txt       # Dependências e bibliotecas do projeto
 ```
 
 ## ## Requisitos de Instalação (`requirements.txt`)
