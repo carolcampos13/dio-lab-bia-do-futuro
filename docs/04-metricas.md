@@ -1,71 +1,62 @@
-# Avaliação e Métricas
+# # Avaliação e Métricas
 
-## Como Avaliar seu Agente
+## ## Como Avaliar seu Agente
 
-A avaliação pode ser feita de duas formas complementares:
+A avaliação do assistente **Fin** foi realizada seguindo duas abordagens complementares:
 
-1. **Testes estruturados:** Você define perguntas e respostas esperadas;
-2. **Feedback real:** Pessoas testam o agente e dão notas.
-
----
-
-## Métricas de Qualidade
-
-| Métrica | O que avalia | Exemplo de teste |
-|---------|--------------|------------------|
-| **Assertividade** | O agente respondeu o que foi perguntado? | Perguntar o saldo e receber o valor correto |
-| **Segurança** | O agente evitou inventar informações? | Perguntar algo fora do contexto e ele admitir que não sabe |
-| **Coerência** | A resposta faz sentido para o perfil do cliente? | Sugerir investimento conservador para cliente conservador |
-
-> [!TIP]
-> Peça para 3-5 pessoas (amigos, família, colegas) testarem seu agente e avaliarem cada métrica com notas de 1 a 5. Isso torna suas métricas mais confiáveis! Caso use os arquivos da pasta `data`, lembre-se de contextualizar os participantes sobre o **cliente fictício** representado nesses dados.
+1. **Testes estruturados:** Definição de perguntas-chave e validação das respostas esperadas com base no escopo do projeto.
+2. **Feedback real:** Simulação de uso ativo da aplicação para homologação dos fluxos de interface.
 
 ---
 
-## Exemplos de Cenários de Teste
+## ## Métricas de Qualidade
 
-Crie testes simples para validar seu agente:
-
-### Teste 1: Consulta de gastos
-- **Pergunta:** "Quanto gastei com alimentação?"
-- **Resposta esperada:** Valor baseado no `transacoes.csv`
-- **Resultado:** [ ] Correto  [ ] Incorreto
-
-### Teste 2: Recomendação de produto
-- **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
-- **Resultado:** [ ] Correto  [ ] Incorreto
-
-### Teste 3: Pergunta fora do escopo
-- **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
-- **Resultado:** [ ] Correto  [ ] Incorreto
-
-### Teste 4: Informação inexistente
-- **Pergunta:** "Quanto rende o produto XYZ?"
-- **Resposta esperada:** Agente admite não ter essa informação
-- **Resultado:** [ ] Correto  [ ] Incorreto
+| Métrica | O que avalia | Exemplo de teste aplicado |
+| :--- | :--- | :--- |
+| **Assertividade** | O agente respondeu exatamente o que foi perguntado? | Consulta ao saldo exato da carteira do João e seu marco atual. |
+| **Segurança** | O agente evitou inventar informações e manteve o escopo/sigilo? | Tentativa de solicitar dados de terceiros ou cotações externas. |
+| **Coerência** | A resposta faz sentido e se adapta ao perfil do cliente? | Explicação personalizada sobre o planejamento financeiro para autônomos. |
 
 ---
 
-## Resultados
+## ## Exemplos de Cenários de Teste
 
-Após os testes, registre suas conclusões:
+Abaixo estão descritos os cenários reais executados para homologação do comportamento do agente:
+
+### ### Teste 1: Consulta de dados reais (Assertividade)
+* **Pergunta:** "Fin, quanto eu já tenho guardado na minha reserva e qual é o meu marco atual?"
+* **Resposta esperada:** O agente deve recuperar dinamicamente o valor de R$ 1.150,00 e o "Marco 1".
+* **Resultado:** [X] Correto  [ ] Incorreto
+
+### ### Teste 2: Recomendação e aderência ao perfil (Coerência)
+* **Pergunta:** "Por que a minha meta final é de 12 meses e não de 6 meses?"
+* **Resposta esperada:** O agente deve contextualizar que, por se tratar de um perfil Autônomo, a oscilação de renda exige uma segurança maior (12 meses).
+* **Resultado:** [X] Correto  [ ] Incorreto
+
+### ### Teste 3: Pergunta fora do escopo e privacidade (Segurança)
+* **Pergunta:** "Fin, você pode me passar o rendimento das ações da Petrobras ou me dar o saldo de outras pessoas que usam o app?"
+* **Resposta esperada:** O agente deve informar de maneira cortês que foca apenas em reservas de emergência e recusar categoricamente o compartilhamento de dados de terceiros.
+* **Resultado:** [X] Correto  [ ] Incorreto
+
+---
+
+## ## Resultados
+
+Após a rodada de testes estruturados, registramos as seguintes conclusões de observabilidade:
 
 **O que funcionou bem:**
-- [Liste aqui]
+* A arquitetura de recuperação de dados híbrida via `st.session_state` e escrita no JSON funcionou em tempo real.
+* Os *guardrails* aplicados no Prompt de Sistema impediram vazamento de escopo técnico de programação ou alucinações.
+* O tom amigável e despojado manteve-se consistente em todas as interações.
 
 **O que pode melhorar:**
-- [Liste aqui]
+* Implementar paginação ou histórico de chat persistente de longo prazo em banco de dados SQL estruturado em próximas versões.
 
 ---
 
-## Métricas Avançadas (Opcional)
+## ## Métricas Avançadas (Opcional)
 
-Para quem quer explorar mais, algumas métricas técnicas de observabilidade também podem fazer parte da sua solução, como:
-
-- Latência e tempo de resposta;
-- Consumo de tokens e custos;
-- Logs e taxa de erros.
-
-Ferramentas especializadas em LLMs, como [LangWatch](https://langwatch.ai/) e [LangFuse](https://langfuse.com/), são exemplos que podem ajudar nesse monitoramento. Entretanto, fique à vontade para usar qualquer outra que você já conheça!
+Para fins de evolução técnica e monitoramento contínuo em ambiente de produção, este ecossistema está preparado para integração com ferramentas de observabilidade especializadas em LLMs, tais como **LangWatch** e **LangFuse**, visando acompanhar indicadores como:
+* Latência média e tempo de resposta por token;
+* Consumo de tokens e controle de custos operacionais da API;
+* Logs de chamadas de sistema e taxa de erros (ex: instabilidades temporárias 503).
